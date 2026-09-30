@@ -32,8 +32,8 @@ router.post('/verify', async (req, res) => {
 
     const { key } = parsed.data;
 
-    // Demo mode check
-    if (isDemoMode()) {
+    // Demo mode check - fallback if Supabase not configured
+    if (isDemoMode() || !isSupabaseConfigured) {
       const result = demoActivation(key);
       if (!result.valid) {
         return res.status(400).json(errorResponse('INVALID_KEY', result.error || 'Invalid key'));

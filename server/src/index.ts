@@ -35,6 +35,10 @@ app.use('/api/settings', activationMiddleware, settingsRoutes);
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Lead Forge server running on port ${PORT}`);
-});
+export default app;
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Lead Forge server running on port ${PORT}`);
+  });
+}

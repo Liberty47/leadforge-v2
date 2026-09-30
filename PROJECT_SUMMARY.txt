@@ -1,0 +1,94 @@
+LEAD FORGE — PROJECT SUMMARY
+=============================
+
+Tech Stack
+----------
+- React 18 + TypeScript + Vite 5
+- Tailwind CSS 3 (dark theme, custom colors)
+- Zustand 4 for state management (with localStorage persist)
+- React Router v6 for routing
+- Lucide React for icons
+- ESLint with TypeScript rules
+
+Pages Built (12 total)
+----------------------
+1. Activation (/activation) — License key entry screen
+2. Dashboard (/dashboard) — Stats overview, activity feed, active campaigns, quick actions
+3. Leads (/leads) — CRM table with search, category/location/status filters
+4. Lead Details (/leads/:id) — Business info, edit mode, outreach timeline
+5. Find Leads (/find-leads) — Category selector, location input, mock search, bulk save
+6. Campaigns (/campaigns) — Campaign cards with stats
+7. Create Campaign (/campaigns/create) — 5-step wizard: Details, Select Leads, Write Email, AI Personalization, Generate
+8. Campaign Details (/campaigns/:id) — Stats, lead table, metrics
+9. Review Emails (/review) — Split-panel email reviewer with edit, regenerate, approve/reject (the core screen)
+10. Email Details (/emails/:id) — Full email view with activity timeline
+11. Activity (/activity) — Filterable activity feed
+12. Settings (/settings) — Tabs: General, AI, Email, Notifications, Activation, Integrations
+
+Core Features
+-------------
+- Activation system — Demo key: DEMO-LEADFORGE-2026
+- Mock lead discovery — Simulates searching businesses by category + location
+- Campaign builder — Multi-step wizard with lead selection
+- AI personalization — Light/Balanced/Deep modes (mocked)
+- Email review queue — Edit, regenerate, approve/reject per email, send simulation
+- Real-time activity tracking — Sent, delivered, opened, clicked, replied states
+- External notifications — Telegram/WhatsApp toggles (UI-only, not wired to real APIs)
+- State persistence — All data persists in localStorage via Zustand
+
+Service Placeholders (ready for backend wiring)
+-----------------------------------------------
+- activationService — Activation key verification
+- leadSearchService — Serper API integration
+- aiPersonalizationService — OpenRouter API integration
+- emailService — Resend API integration
+- activityService — Webhook-based activity tracking
+- notificationService — Telegram bot notifications
+
+Files Created (28)
+-------------------
+.eslintrc.cjs
+.gitignore
+index.html
+package.json
+package-lock.json
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+src/
+  App.tsx
+  main.tsx
+  index.css
+  components/
+    Layout.tsx
+  data/
+    mockData.ts
+  store/
+    useStore.ts
+  pages/
+    Activation.tsx
+    Activity.tsx
+    CampaignDetails.tsx
+    Campaigns.tsx
+    CreateCampaign.tsx
+    Dashboard.tsx
+    EmailDetails.tsx
+    FindLeads.tsx
+    LeadDetails.tsx
+    Leads.tsx
+    ReviewEmails.tsx
+    Settings.tsx
+
+GitHub
+------
+- Repo: https://github.com/Liberty47/leadforge-v2
+- Branch: master
+- Commits: 1 (initial commit)
+
+Known Issues
+------------
+- Dev server runs on port 5502 — use http://localhost:5502/ directly
+- No real backend — all integrations are mocked
+- Telegram/WhatsApp notification toggles are UI-only

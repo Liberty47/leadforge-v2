@@ -10,8 +10,9 @@ export default function Activation() {
   const activate = useStore((state) => state.activate);
   const navigate = useNavigate();
 
-  const handleActivate = () => {
-    if (activate(key)) {
+  const handleActivate = async () => {
+    const success = await activate(key);
+    if (success) {
       setSuccess(true);
       setTimeout(() => {
         navigate('/dashboard');

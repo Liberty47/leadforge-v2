@@ -43,8 +43,8 @@ Best regards`,
     }
   };
 
-  const handleGenerate = () => {
-    const campaignId = createCampaign({
+  const handleGenerate = async () => {
+    const campaignId = await createCampaign({
       name: formData.name,
       category: formData.category,
       location: formData.location,

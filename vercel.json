@@ -8,7 +8,9 @@
     },
     "server": {
       "root": "server",
-      "buildCommand": "npm run build"
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist",
+      "entrypoint": "src/index.ts"
     }
   },
   "rewrites": [

@@ -68,14 +68,15 @@ interface ResendWebhookData {
 }
 
 export async function handleResendWebhook(type: string, data: ResendWebhookData): Promise<void> {
-  const { supabase } = await import('../lib/supabase.js');
-  const { isSupabaseConfigured } = await import('../lib/supabase.js');
+  const { getSupabase, isSupabaseConfigured } = await import('../lib/supabase.js');
 
   console.log('Resend webhook:', type, data);
 
   if (!isSupabaseConfigured) {
     return;
   }
+
+  const supabase = await getSupabase();
 
   // Find email by provider_message_id
   const { data: email } = await supabase

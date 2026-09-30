@@ -43,10 +43,6 @@ router.post('/verify', async (req, res) => {
     }
 
     // Production: verify against Supabase
-    if (!isSupabaseConfigured) {
-      return res.status(500).json(errorResponse('CONFIG_ERROR', 'Database not configured'));
-    }
-
     const supabase = await getSupabase();
     const keyHash = hashKey(key);
     const { data: activationKey, error } = await supabase
